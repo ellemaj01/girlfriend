@@ -6,9 +6,9 @@ const SUCCES_BERICHT = "JAAAAAAAAAAAAAAA NU BEN JE EINDELIJK VAN MIJJJJ 💕";
 const NEE_TEKSTEN = [
   "Nee",
   "Ben je yusu??",
-  "Maak je echt geen fatoe???? 🥺",
+  "Maak je echt geen fatoe????",
   "Denk nog even na...",
-  "Laatste kans!",
+  "Laatste kans",
   "Nah ik ga yusu huilen",
   "Je breekt mijn hart 💔",
   "Hater",
