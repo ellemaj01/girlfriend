@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Een vraagje... 💌</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hearts" aria-hidden="true"></div>
+
+  <!-- Stap 1: envelop -->
+  <section class="screen active" id="intro">
+    <button class="envelope" id="openBtn" aria-label="Open de brief">
+      <span class="envelope-emoji">💌</span>
+    </button>
+    <p class="hint">Ik heb iets voor je... tik op de envelop</p>
+  </section>
+
+  <!-- Stap 2: de vraag -->
+  <section class="screen" id="question">
+    <div class="card">
+      <div class="big-emoji" id="questionEmoji">🥺</div>
+      <p class="greeting" id="greeting"></p>
+      <h1>Wil je mijn vriendin zijn?</h1>
+      <div class="buttons">
+        <button class="btn yes" id="yesBtn">Ja! 💖</button>
+        <button class="btn no" id="noBtn">Nee</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stap 3: ja! -->
+  <section class="screen" id="success">
+    <div class="card">
+      <div class="big-emoji bounce">🥰</div>
+      <h1>Yesss!!</h1>
+      <p class="message" id="successMessage"></p>
+    </div>
+  </section>
+
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
