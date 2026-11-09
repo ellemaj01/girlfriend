@@ -22,7 +22,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* ---------- Zwevende hartjes op de achtergrond ---------- */
+/* ---------- Hearts on the background ---------- */
 .hearts {
   position: fixed;
   inset: 0;
@@ -39,7 +39,7 @@ body {
   to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
 }
 
-/* ---------- Schermen ---------- */
+/* ---------- Screens ---------- */
 .screen {
   position: fixed;
   inset: 0;
@@ -59,7 +59,7 @@ body {
   transform: scale(1);
 }
 
-/* ---------- Envelop ---------- */
+/* ---------- Envelope ---------- */
 .envelope {
   background: none;
   border: none;
@@ -79,7 +79,7 @@ body {
   text-align: center;
 }
 
-/* ---------- Kaart ---------- */
+/* ---------- Card ---------- */
 .card {
   background: var(--card);
   backdrop-filter: blur(6px);
@@ -99,7 +99,7 @@ h1 {
 }
 .message { font-size: 1.2rem; line-height: 1.5; margin: 0; }
 
-/* ---------- Knoppen ---------- */
+/* ---------- Buttons ---------- */
 .buttons {
   display: flex;
   gap: 16px;
@@ -129,7 +129,7 @@ h1 {
   color: var(--text);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
-/* Als de nee-knop gaat rennen */
+/* No-button running */
 .no.running {
   position: fixed;
   z-index: 10;

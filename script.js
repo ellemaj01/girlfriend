@@ -1,18 +1,18 @@
-// ===== Pas hier je eigen teksten aan =====
-const NAAM = "Joël";
-const SUCCES_BERICHT = "Je hebt me de gelukkigste persoon ter wereld gemaakt 💕<br>Ik kan niet wachten om je te zien!";
+// ===== Variables =====
+const NAAM = "baby";
+const SUCCES_BERICHT = "JAAAAAAAAAAAAAAA NU BEN JE EINDELIJK VAN MIJJJJ 💕";
 
-// Wat de nee-knop zegt elke keer dat ze het probeert
+// No-button texts
 const NEE_TEKSTEN = [
   "Nee",
-  "Weet je het zeker?",
-  "Echt zeker?? 🥺",
+  "Ben je yusu??",
+  "Maak je echt geen fatoe???? 🥺",
   "Denk nog even na...",
   "Laatste kans!",
-  "Ik ga huilen 😭",
+  "Nah ik ga yusu huilen",
   "Je breekt mijn hart 💔",
-  "Oké nu ben je gewoon gemeen",
-  "Druk toch op Ja 🙏",
+  "Hater",
+  "Druk gewoon op ja 🙏",
 ];
 // ========================================
 
@@ -25,7 +25,7 @@ const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const questionEmoji = document.getElementById("questionEmoji");
 
-document.getElementById("greeting").textContent = `Hoi ${NAAM}, ik moet je iets vragen...`;
+document.getElementById("greeting").textContent = `Hey ${NAAM}, ik moet je iets vragen...`;
 document.getElementById("successMessage").innerHTML = SUCCES_BERICHT;
 
 function show(name) {
@@ -33,10 +33,10 @@ function show(name) {
   screens[name].classList.add("active");
 }
 
-// Stap 1 -> 2
+// Step 1 -> 2
 document.getElementById("openBtn").addEventListener("click", () => show("question"));
 
-// ----- Nee-knop die wegrent -----
+// ----- Runaway no-button -----
 let noCount = 0;
 const emojis = ["🥺", "😢", "😭", "💔", "😿"];
 
@@ -45,24 +45,22 @@ function runAway() {
   noBtn.textContent = NEE_TEKSTEN[Math.min(noCount, NEE_TEKSTEN.length - 1)];
   questionEmoji.textContent = emojis[Math.min(noCount, emojis.length - 1)];
 
-  // Ja-knop wordt steeds groter
+  // Grow the yes-button
   const size = 1.15 + noCount * 0.25;
   yesBtn.style.fontSize = `${Math.min(size, 3.5)}rem`;
   yesBtn.style.padding = `${14 + noCount * 3}px ${30 + noCount * 6}px`;
 
-  // De eerste keer: knop uit de kaart halen en direct onder <body> zetten.
-  // De kaart heeft een blur-effect, en daardoor zou "position: fixed" vanaf
-  // de kaart rekenen in plaats van vanaf het scherm (en dan vliegt hij weg).
+  // First run: move to <body>, since the card's backdrop-filter breaks position: fixed
   if (!noBtn.classList.contains("running")) {
     const start = noBtn.getBoundingClientRect();
     document.body.appendChild(noBtn);
     noBtn.classList.add("running");
     noBtn.style.left = `${start.left}px`;
     noBtn.style.top = `${start.top}px`;
-    noBtn.offsetWidth; // forceer layout zodat de animatie vanaf hier start
+    noBtn.offsetWidth; // force layout so the transition starts here
   }
 
-  // Willekeurige plek die binnen het scherm blijft en niet over de Ja-knop valt
+  // Random spot on screen, not over the yes-button
   const pad = 16;
   const { w, h } = viewport();
   const bw = noBtn.offsetWidth;
@@ -84,7 +82,7 @@ function runAway() {
   noBtn.style.top = `${y}px`;
 }
 
-// Zichtbare schermgrootte (houdt rekening met de adresbalk op telefoons)
+// Visible screen size (handles mobile address bar)
 function viewport() {
   const vv = window.visualViewport;
   return {
@@ -93,7 +91,7 @@ function viewport() {
   };
 }
 
-// Als het scherm draait of kleiner wordt: knop terug binnen beeld zetten
+// Keep no-button on screen after resize
 window.addEventListener("resize", () => {
   if (!noBtn.classList.contains("running")) return;
   const pad = 16;
@@ -104,14 +102,14 @@ window.addEventListener("resize", () => {
   noBtn.style.top = `${Math.max(pad, y)}px`;
 });
 
-// Desktop: wegrennen bij hover. Telefoon: wegrennen bij aantikken.
+// Run on hover (desktop) or tap (mobile)
 noBtn.addEventListener("mouseenter", runAway);
 noBtn.addEventListener("click", (e) => {
   e.preventDefault();
   runAway();
 });
 
-// ----- Ja! -----
+// ----- Yes! -----
 yesBtn.addEventListener("click", () => {
   noBtn.style.display = "none";
   show("success");
@@ -119,7 +117,7 @@ yesBtn.addEventListener("click", () => {
   for (let i = 0; i < 30; i++) setTimeout(spawnHeart, i * 60);
 });
 
-// ----- Zwevende hartjes -----
+// ----- Floating hearts -----
 const heartsEl = document.querySelector(".hearts");
 const heartChars = ["💗", "💖", "💕", "💘", "❤️", "🩷"];
 function spawnHeart() {
@@ -134,7 +132,7 @@ function spawnHeart() {
 }
 setInterval(spawnHeart, 700);
 
-// ----- Confetti (zonder library) -----
+// ----- Confetti (no library) -----
 const canvas = document.getElementById("confetti");
 const ctx = canvas.getContext("2d");
 let pieces = [];
@@ -167,7 +165,7 @@ function launchConfetti() {
 function tick() {
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
   pieces.forEach((p) => {
-    p.vy += 0.35; // zwaartekracht
+    p.vy += 0.35; // gravity
     p.vx *= 0.99;
     p.x += p.vx;
     p.y += p.vy;
